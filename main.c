@@ -114,21 +114,20 @@ int main(int argc, const char * argv[]) {
             	ifctele_printElement(ifctdb_getData(index));
                 break;
                 
-            case MENU_PLACE: //특정 장소에서 감염이 확인된 환자 관련 정보 출력  
-				printf("Place Info : ");
-            	scanf("%s",&input_place); 
-            	
-            	for(i = 0; i < ifctdb_len() ; i++) {
-					place_num = ifctele_getHistPlaceIndex(ifctdb_getData(i), 4); //환자가 마지막으로 들린 장소 
-						if ( strcmp(ifctele_getPlaceName(place_num), input_place)==0 ){
-							printf("\npatient %d are detected in %s.\n",i,ifctele_getPlaceName(place_num));
-							printf("Information of patient %d\n",i);
-            	        	ifctele_printElement(ifctdb_getData(i)); //환자 관련 정보 출력  
-            	        	break;
-            	        	}	
-				}
-                break;
+            case MENU_PLACE: //특정 장소에서 감염이 확인된 환자 관련 정보 출력
+            	printf("Place Info : ");
+                scanf("%s",&input_place);
                 
+                for(i = 0; i < ifctdb_len() ; i++) {
+                	place_num = ifctele_getHistPlaceIndex(ifctdb_getData(i), 4); //환자가 마지막으로 들린 장소 
+                	if ( strcmp(ifctele_getPlaceName(place_num), input_place)==0 ){
+                			printf("\npatient %d are detected in %s.\n",i,ifctele_getPlaceName(place_num));
+                			printf("Information of patient %d\n",i);
+                			ifctele_printElement(ifctdb_getData(i)); //환자 관련 정보 출력  
+                			break;
+                		}
+                }
+                break;
                 
             case MENU_AGE: //특정 범위의 나이에 해당하는 환자 관련 정보 출력  
                 printf("Age Max : ");
