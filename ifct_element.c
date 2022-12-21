@@ -154,15 +154,16 @@ void ifctele_printElement(void* obj)
 	
 	printf("------------------------------------------------------------------------------\n");
 	printf("Patient index : %i\n", ptr->index);
-	printf("Patient age : %i\n ", ptr->age);
+	printf("Patient age : %i\n", ptr->age);
 	printf("Detected time : %i\n", ptr->detected_time);
-	printf("Path History:");
+	printf("Path History : ");
 	   int i;
 	   for(i=0;i<5;i++)
 	   {
 	   	printf("%s", ifctele_getPlaceName(ptr->place[i]));
 	   	printf("->");
 	   }
+	   
 	printf("\n");
 	printf("------------------------------------------------------------------------------\n");
 }
