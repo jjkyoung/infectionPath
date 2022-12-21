@@ -115,7 +115,6 @@ int main(int argc, const char * argv[]) {
                 break;
                 
             case MENU_PLACE: //특정 장소에서 감염이 확인된 환자 관련 정보 출력  
-            
 				printf("Place Info : ");
             	scanf("%s",&input_place); 
             	
@@ -147,7 +146,11 @@ int main(int argc, const char * argv[]) {
                 break;
                 
             case MENU_TRACK: //감염 경로 및 최초 전파자 추적  
-                    
+                printf("Insert Patient Info : ");
+            	scanf("%d",&index);
+            	
+            	printf("-->[TRAKING] patient %d is infected by %d. (time : %d, place : %d)\n", , ); //감염경로, 최조 전파자 출력  
+				printf("the first infector of %d is %d", , )//출력  
                 break;
                 
             default:
