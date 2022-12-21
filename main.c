@@ -21,7 +21,7 @@
 int trackInfester(int patient_no, int *detected_time, int *place);
 int main(int argc, const char * argv[]) {
     
-    int menu_selection,place_num,i;
+    int menu_selection,place_num,i,input_patient;
     char input_place[40];
     int age_max,age_min;
     int index;
@@ -118,14 +118,14 @@ int main(int argc, const char * argv[]) {
 				printf("Place Info : ");
             	scanf("%s",&input_place); 
             	
-            	for(i = 0; i < ifctdb_len() ; i++){
-				    place_num = ifctele_getHistPlaceIndex(ifctdb_getData(i), 4); //환자가 마지막으로 들린 장소 
-            		   if ( strcmp(ifctele_getPlaceName(place_num), input_place)==0 ){
-				            printf("\npatient %d are detected in %s.\n",i,ifctele_getPlaceName(place_num));
-            	            printf("Information of patient %d\n",i);
-            	            ifctele_printElement(ifctdb_getData(i)); //환자 관련 정보 출력  
-            	            break;
-            	            }	
+            	for(i = 0; i < ifctdb_len() ; i++) {
+					place_num = ifctele_getHistPlaceIndex(ifctdb_getData(i), 4); //환자가 마지막으로 들린 장소 
+						if ( strcmp(ifctele_getPlaceName(place_num), input_place)==0 ){
+							printf("\npatient %d are detected in %s.\n",i,ifctele_getPlaceName(place_num));
+							printf("Information of patient %d\n",i);
+            	        	ifctele_printElement(ifctdb_getData(i)); //환자 관련 정보 출력  
+            	        	break;
+            	        	}	
 				}
                 break;
                 
@@ -145,17 +145,40 @@ int main(int argc, const char * argv[]) {
 				}
                 break;
                 
+                
+            /*    
             case MENU_TRACK: //감염 경로 및 최초 전파자 추적  
-                printf("Insert Patient Info : ");
+                printf("Patient Info : ");
             	scanf("%d",&index);
             	
-            	printf("-->[TRAKING] patient %d is infected by %d. (time : %d, place : %d)\n", , ); //감염경로, 최조 전파자 출력  
-				printf("the first infector of %d is %d", , )//출력  
+            	//1. 입력한 환자의 경로 추적  
+            	
+				//2. 입력한 환자 외의 다른 환자들 경로 추적  
+				
+				//3.  1-2 비교후 동일한 time, place 추적  
+				int infector[]; if_time[], first_infector;
+				char if_place;
+				
+				for(){
+			    printf("-->[TRAKING] patient %d is infected by %d. (time : %d, place : %s)\n", index, infector[], if_time[], if_place[]);
+				}
+				
+				//4. 최초 전파자 출력 
+				if (index != first_infector) 
+				printf("the first infector of %d is %d", index, first_infector);
+			
+				//4-1. 입력한 전파자와 4에서 추적한 최초 전파자가 동일한 경우 
+			    else
+					printf("%d patient is the first infector!!", index); 
+        
                 break;
-                
+            */
+        
+        
             default:
                 printf("[ERROR Wrong menu selection! (%i), please choose between 0 ~ 4\n", menu_selection);
                 break;
+        
         }
     
     } while(menu_selection != 0);
