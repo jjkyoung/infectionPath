@@ -119,8 +119,7 @@ int main(int argc, const char * argv[]) {
 				printf("Place Info : ");
             	scanf("%s",&input_place); 
             	
-            	for (i = 0; i < ifctdb_len() ; i++) 
-				{
+            	for (i = 0; i < ifctdb_len() ; i++) {
             		place_num = ifctele_getHistPlaceIndex(ifctdb_getData(i), 4); //환자가 마지막으로 들린 장소 
             		if ( strcmp(ifctele_getPlaceName(place_num), input_place)==0 )
             		{
