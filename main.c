@@ -119,18 +119,15 @@ int main(int argc, const char * argv[]) {
 				printf("Place Info : ");
             	scanf("%s",&input_place); 
             	
-            	for (i = 0; i < ifctdb_len() ; i++) {
-            		place_num = ifctele_getHistPlaceIndex(ifctdb_getData(i), 4); //환자가 마지막으로 들린 장소 
-            		if ( strcmp(ifctele_getPlaceName(place_num), input_place)==0 )
-            		{
-					printf("\npatient %d are detected in %s.\n",i,ifctele_getPlaceName(place_num));
-            	    printf("Information of patient %d\n",i);
-            	    ifctele_printElement(ifctdb_getData(i)); //환자 관련 정보 출력  
-            	    break;
-            	    }
-						
+            	for(i = 0; i < ifctdb_len() ; i++){
+				    place_num = ifctele_getHistPlaceIndex(ifctdb_getData(i), 4); //환자가 마지막으로 들린 장소 
+            		   if ( strcmp(ifctele_getPlaceName(place_num), input_place)==0 ){
+				            printf("\npatient %d are detected in %s.\n",i,ifctele_getPlaceName(place_num));
+            	            printf("Information of patient %d\n",i);
+            	            ifctele_printElement(ifctdb_getData(i)); //환자 관련 정보 출력  
+            	            break;
+            	            }	
 				}
-            	
                 break;
                 
                 
