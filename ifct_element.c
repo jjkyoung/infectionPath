@@ -99,10 +99,10 @@ char countryName[N_PLACE+1][MAX_PLACENAME] =
 };
 
 typedef struct ifs_ele {
-	int index;//number ->정수  
-	int age;//age ->정수  
-	int detected_time;//time ->정수  
-	place_t place[N_HISTORY];//place[N_HISTORY] -> place_t 배열  
+	int index;//number -> integar  
+	int age;//age -> integar  
+	int detected_time;//time -> integar 
+	place_t place[N_HISTORY];//place[N_HISTORY] -> place_t array
 } ifs_ele_t;
 
 
